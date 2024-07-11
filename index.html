@@ -23,6 +23,274 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>쿠폰함</title>
     <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+
+    <style>
+    
+        input[type=color]{padding:0; border:none; width:30px; height:35px; background:none;}
+        .preview {border-bottom: 2px dashed;}
+        .menubar > li.active a.menu{color:#1e60b2}
+        .menubar > li > span {font-size:17px; font-weight:700;}
+        #sessionExtentsion {font-size: 12px; vertical-align:bottom; width:40px; margin-left:3px; }
+        .btn_comm--gray:focus{background:#f0f4f7}
+          
+      </style>
+      <style>
+      
+        .my_image{margin-top:35px; width:130px; border-radius:2px; letter-spacing:0px;}
+        .image_cloud{width:130px;}
+        .goods__pre h1{font-size:35px; line-height:40px;}
+        .goods__pre h2{font-size:30px; line-height:40px;}
+        .goods__pre h3{font-size:25px; line-height:40px;}
+        .goods__pre h4{font-size:20px; line-height:30px;}
+        .goods__pre h5{font-size:18px; line-height:30px;}
+        .goods__pre h6{font-size:16px; line-height:30px;}
+        pre{font-family:auto;}
+        .sample__name{ padding: 16px 8px; font-weight: bold; color:#fff; text-align: center; font-size:1.1em;}
+        .chgNum{width:180px; }
+        .chgNum:read-only{background:#d9d9d9; border: 1px solid #aaa; border-radius: 2px; color:#7f7f7f;}
+        .ern-leaflet-swiper-menu {
+          position: relative;
+          border-bottom: 1px solid var(--line-divide);
+          margin-top: 0;
+          padding: 0 48px 0 16px!important;
+        }
+        .box-toggle-block {
+          position: relative;
+          padding-top: 10px;
+          height: 40px;
+          transition: .1s linear;
+          background: var(--background-white);
+          width: 100%;
+          z-index: 1;
+        }
+        .pdtDisPrice{font-weight:bold}
+        .pdtName{color:#21409a}
+        
+          .swiper {background: #fff; border-bottom: 1px solid #c1c1c1;}
+          .swiper-slide {width: auto; /* 슬라이드 너비 설정 */}
+          
+          /* bold적용x */
+        /*.scroll_btn .btn_comm { padding: 6px 15px; border: 1px solid #ebecec; background: #fff; border-radius: 20px; margin-bottom: 4px; margin-top:4px; color: #636363;}*/
+      
+          .scroll_btn .btn_comm { padding: 6px 15px; border: 1px solid #636363; background: #fff; border-radius: 20px; margin-bottom: 4px; margin-top:4px; color: #636363; font-weight:bold;}
+      
+          .scroll_btn .btn_comm:active { margin-bottom: 4px; margin-top:4px; border: 1px solid #21409a; border-radius: 20px; background: #21409a; font-weight: bold; color: #fff; box-shadow: 0 1px 3px 0 rgba(0,0,0,.06); }
+        .scroll_btn .btn_comm:hover{margin-bottom: 4px; margin-top:4px; border: 1px solid #21409a; border-radius: 20px; background: #21409a; font-weight: bold; color: #fff; box-shadow: 0 1px 3px 0 rgba(0,0,0,.06); }
+      
+          .cnList .btn_comm { margin-right: 8px; margin-bottom: 4px; border: 1px solid #636363; background: #fff; border-radius: 20px; color: #636363; font-weight:bold;}
+          .cnList .btn_comm:hover { border: 1px solid #21409a; border-radius: 20px; background: #21409a; font-weight: bold; color: #fff; box-shadow: 0 1px 3px 0 rgba(0,0,0,.06); }
+          .radio_comm input[type=radio] {margin-left: 4px; margin-right: 4px; padding:4px;}
+        .radio_comm {margin:3px;}
+        .layout__sample {scroll-padding-top: 175px;}
+        .textTbl thead tr td.emp::before {
+          content: "*";
+          display: inline-block;
+          width: 8px;
+          margin-left: -8px;
+          color: red;
+        }
+        .form-control:focus {
+          border-color: #66afe9;
+          outline: 0;
+          -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
+          box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
+        }
+        .form-control {
+            display: block;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        }
+        .search__checkbox {
+          display: inline-block;
+          padding: 3px 5px;
+          line-height: 18px; }
+          .search__checkbox > label {
+          vertical-align: top;
+          cursor: pointer; }
+          .search__checkbox > input {
+          vertical-align: top;
+          width: 15px;
+          height: 15px;
+          margin-top: 3px; }
+          .search__checkbox:checked{accent-color:#228be6}
+      
+      </style>
+      <style>
+        /* 토글버튼 */
+        .togglebox {display: inline-flex; align-items: center;}
+        .toggle_btn {position: relative; display: inline-flex; align-items: center; margin-left: 5px; cursor: pointer;}
+        .toggle_btn span:first-child {position: absolute; left: 5px; z-index: 1; font-size: 10px; letter-spacing: -1px; color: #333;}
+        .toggle_btn span:nth-child(2) {position: absolute; right: 5px; z-index: 1; font-size: 10px; letter-spacing: -1px; color: #fff;}
+        .toggle_btn [type="checkbox"] {appearance: none; position: relative; border-radius: 20px; width: 46px; height: 24px; background: rgb(156 163 175);}
+        .toggle_btn [type="checkbox"]::before {content: ""; position: absolute; left: 0; top: 0px; width: 24px; height: 24px;border-radius: 50%; background-color: #fdfdfd; transform: scale(0.8); transition: left 150ms linear; z-index: 2;}
+        .toggle_btn [type="checkbox"]:checked {background: rgb(165, 188, 231);}
+        .toggle_btn [type="checkbox"]:checked::before {left: 22px; background-color:#2669cf;}
+      
+        /* 쿠폰 탭 */
+        .coupons__tab {display: flex; background: #fff;  font-size: 16px; letter-spacing: -1px;}
+        .coupons__tab a {flex: 1; display: flex; align-items: center; justify-content: center; padding: 10px; color: rgb(148 , 163, 184);}
+        .coupons__tab a.active {border-bottom: 3px solid #555; color: #333;}
+      
+      
+        /* coupon -----------------------------------------*/
+        .coupons {position: relative; width: 100%;}
+        .coupons::before { content: " "; display: table;}
+        .coupons::after {content: " "; display: table; clear: both;}
+        .coupons__list li {float: left; display: block; width: 50%; padding: 2px; margin-bottom: 3px;}
+        .coupons__btngroup { display: flex; }
+        .coupons__box { flex: 1; display: flex; margin: 7px 0; padding: 7px; position: relative; border-radius: 10px; overflow: hidden;}
+      
+        .coupons__mainbtn {display: flex; align-items: center; justify-content: center; border-radius: 5px; padding: 8px; border: 1px solid rgb(253 164 175); background-color: rgb(255, 228, 230);}
+        .coupons__mainbtn span {margin-left: 5px; font-weight: 600; color: #333;}
+      
+        .coupons__card { overflow: hidden; position: relative; display: flex; flex-direction: column; padding: 0; border: 1px solid #d1d1d6; border-radius: 10px; background: #fff;}
+        .coupons__darkbg {position: absolute; top:0; right: 0; bottom: 0; left: 0; display: flex; background:rgba(15, 23, 42,.5);}
+        .coupons__darkbg p {flex: 1; display: flex; align-items: center; justify-content: center; padding: 10px; text-align: center; color: #fff; font-size: 16px;font-weight:600;}
+        .coupons__header {display: flex; align-items: center; padding: 7px; border-bottom: 1px solid rgb(248 250 252); background: rgb(248 250 252);}
+        .coupons__link {display: flex ; align-items: center; margin-left: auto;}
+        .coupons__link span {color: rgb(100 116 139); letter-spacing: -1px; line-height: 1;}
+        .coupons__link svg {margin-left: 6px;}
+        .coupons__body {display: flex; padding: 3px 10px; border-radius: 60px;}
+        .coupons__imgbox {display: block; position: relative; overflow: hidden; width: 36%; height: 130px; background: #f8f9fa;line-height: 130px;text-align: center;}
+        .coupons__imgbox img {display: inline-block;max-width: 100%;width: auto;max-height: 100%;height: auto;margin-top: -1px;vertical-align: middle;}
+        .coupons__info {flex: 1; display: flex; flex-direction: column; margin-left: 6px; }
+        .coupons__name {position: relative;overflow: hidden;/*height: 42px;*/margin: 5px 0 0;font-size: 15px;font-weight: 600;text-overflow: ellipsis;word-wrap: break-word;line-height: 1.2;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;}
+        .coupons__name > span {position: absolute;bottom: 0;left: 0;width: 100%;text-align: center;}
+        .coupons__date {color: #495057; margin-top: auto;}
+        .coupons__price {font-size: 16px; color:#fa5252;}
+        .coupons__price em {font-size: 41px;font-weight: 800;font-style: normal;color: #fa5252;letter-spacing: -0.7px;}
+      
+        /* 찜하기 */
+        .zzimbtn {display: flex; align-items: center; /*background: rgb(226 232 240);*/ padding: 3px 10px; border-radius: 60px; color: rgb(244, 63, 94); border:1px solid rgb(244, 63, 94);}
+        .zzimbtn svg {width: 18px; height: 18px; margin-right: 2px;}
+        .zzimbtn svg path {fill:/*rgb(148, 163, 184)*/rgb(244, 63, 94);}
+        .zzimbtn span {color:/*rgb(148, 163, 184)*/rgb(244, 63, 94);letter-spacing: -1px;}
+        .zzimbtn.active {background: rgb(244, 63, 94)}
+        .zzimbtn.active .empty-heart{display: none;}
+        .zzimbtn .filled-heart {display: none;}
+        .zzimbtn.active .filled-heart {display: inline-block;}
+        .zzimbtn.active svg path{fill: rgb(255, 255, 255);}
+        .zzimbtn.active span{color: rgb(255, 255, 255);}
+        
+        .modalbox__zzimbtn.active .empty-heart{display: none;}
+        .modalbox__zzimbtn .filled-heart {display: none;}
+        .modalbox__zzimbtn.active .filled-heart {display: inline-block;}
+      
+        /* 모달팝업 */
+        .modalbox { position: absolute; top: 135px; right: 0; left: 0; bottom: 0; padding: 10px; display: flex; flex-direction: column; }
+        .modalbox__info {display: block; padding: 120px 20px; text-align: center; color: #fff; z-index: 1;}
+        .modalbox__bg {position: absolute; top: -20px; right: 0; left: 0; bottom: 0; background: rgba(15, 23, 42,.8);}
+        .modalbox__panel {display: block; position: relative; padding: 10px; border-radius: 6px; background: #fff; z-index: 1;}
+        .modalbox__tit { margin: 10px auto; text-align: center; font-size: 20px; font-weight: 600; }
+        .modalbox__dl {margin-top: 16px;}
+        .modalbox__dl dt {color: rgb(71, 85, 105);}
+        .modalbox__dl dd {font-size: 16px; font-weight: 600; line-height: 1.2;}
+        .modalbox__txt {font-size: 16px; font-weight: 600;}
+        .modalbox__group {display: flex; margin-top: 20px;}
+        .modalbox__zzimbtn { display: flex; align-items: center; justify-content: center; padding:6px 10px; border-radius: 5px; border:1px solid rgb(244, 63, 94); color: rgb(244, 63, 94); }
+        .modalbox__zzimbtn svg {width: 18px; height: 18px; margin-right: 2px;}
+        .modalbox__zzimbtn svg path {fill: rgb(244, 63, 94);}
+        .modalbox__btn { flex: 1; display: flex; align-items: center; justify-content: center; padding: 6px 10px; border-radius: 5px; background: rgb(244, 63, 94); color: #fff; font-weight: 600;}
+        .modalbox__close { position: absolute; top: 4px; right: 4px; }
+        .modalbox__guide {margin-top: 20px; border-top: 1px solid #ddd;}
+        .modalbox__guide p { margin-top: 20px; font-weight: 600; }
+        .modalbox__guide ul { margin-top: 20px;}
+        .modalbox__guide ul li {margin-top: 10px; margin-left: 20px; list-style:circle; line-height: 1.2; }
+         /* 하단 sticky 버튼그룹 */
+        .wrap_stickyfooter {display: block; position: sticky; bottom: 0;}
+        .btn_movetop {display: flex; flex-direction: column; align-items: center; justify-content: center; width: 60px; height:60px; margin:0 10px 10px auto;  font-size: 11px; font-weight: normal; line-height: 1; letter-spacing: -1px; border-radius: 30px; background: rgba(0, 0, 0, .7); color: #fff; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, .3)}
+        .btn_movetop:hover {background: #333; text-decoration: none;}
+        .btn_movecoupon { display: flex; width: 170px; height: auto; margin: 10px 0 10px auto; padding: 10px; border-radius: 50px; border-top-right-radius: 0; border-bottom-right-radius: 0; text-align: left;  color: #fff; background: #F43F5E; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, .3)}
+        .btn_movecoupon:hover {text-decoration: none;}
+        .btn_movecoupon > span {font-size: 16px; font-weight: 600; line-height: 1.2; letter-spacing: -1px;}
+        .btn_movecoupon > span > span {font-size: 12px; font-weight: normal; color: #ffebeb;}
+        .btn_couponusebox { margin-top: 15px; padding: 6px; background: #fff; box-shadow: 0 -4px 20px -6px rgba(0, 0, 0, .3) }
+        .btn_couponuse {display: flex; align-items: center; justify-content: center; border-radius: 5px; padding: 12px 8px; font-size: 16px; font-weight: 600; letter-spacing: -1px; background-color: rgb(244, 63, 94); color: #fff;}
+        .btn_couponuse:hover {text-decoration: none;}
+      </style>
+      <style>
+              .toast {
+                  visibility: hidden; /* 숨김 상태 */
+                  align-self: center;
+                  background-color: #333;
+                  color: #fff;
+                  text-align: center;
+                  border-radius: 2px;
+                  padding: 16px;
+                  position: fixed;
+                  z-index: 1;
+                  bottom: 30px;
+                  font-size: 17px;
+              }
+      
+              .toast.show {
+                  visibility: visible; /* 표시 상태 */
+                  -webkit-animation: fadein 0.5s, fadeout 0.5s 1.5s;
+                  animation: fadein 0.5s, fadeout 0.5s 1.5s;
+              }
+      
+              @-webkit-keyframes fadein {
+                  from {bottom: 0; opacity: 0;}
+                  to {bottom: 30px; opacity: 1;}
+              }
+      
+              @keyframes fadein {
+                  from {bottom: 0; opacity: 0;}
+                  to {bottom: 30px; opacity: 1;}
+              }
+      
+              @-webkit-keyframes fadeout {
+                  from {bottom: 30px; opacity: 1;}
+                  to {bottom: 0; opacity: 0;}
+              }
+      
+              @keyframes fadeout {
+                  from {bottom: 30px; opacity: 1;}
+                  to {bottom: 0; opacity: 0;}
+              }
+              .save.disabled {background: lightgray; border-color: lightgray;}
+      </style>
+
+    
+
+
+
+    <style>
+        .modalbox {position: fixed; top: 0; right: 0; bottom: 0; left: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 999;}
+        .modalbox .coupons__list {overflow-y: auto; width: auto; height: 250px; margin: 0 -10px; padding: 10px; background: rgb(203, 213, 225); }
+        .modalbox .coupons__imgbox {display: flex; flex-direction: column; align-items: center; justify-content: center; width: 80px; height: 80px;}
+        .modalbox .coupons__price em {font-size: 18px; line-height: 1.2;}
+        .modalbox__guide {margin-top: 6px;}
+        .modalbox__guide p {margin-top: 6px;}
+        .modalbox__guide ul {margin-top: 6px;}
+        .modalbox__guide ul li{margin-top: 2px; font-size: 13px;}
+        .barcode-container {display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    </style>
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+
     <style>
         input[type=color] {
             padding: 0;
@@ -575,8 +843,8 @@
             font-size: 20px;
         }
         .modalbox .coupons__imgbox {
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
         }
         .modalbox .coupons__list {
             position: relative;
@@ -687,8 +955,14 @@
         }
 
         .modalbox__bg {
-            position: absolute;
+            /* position: absolute;
             top: -20px;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            background: rgba(15, 23, 42, .8); */
+            position: absolute;
+            top: 0;
             right: 0;
             left: 0;
             bottom: 0;
@@ -703,6 +977,7 @@
             background: #fff;
             z-index: 1; */
 
+            flex: 1;
             display: block;
             position: relative;
             width: 100%;
@@ -710,8 +985,6 @@
             border-radius: 6px;
             background: #fff;
             z-index: 1;
-
-
         }
 
         .modalbox__tit {
@@ -794,11 +1067,15 @@
         }
 
         .modalbox__guide ul {
-            margin-top: 20px;
+            margin-top: 6px;
         }
 
         .modalbox__guide ul li {
-            margin-top: 10px;
+            /* margin-top: 10px;
+            margin-left: 20px;
+            list-style: circle;
+            line-height: 1.2; */
+
             margin-left: 20px;
             list-style: circle;
             line-height: 1.2;
@@ -965,7 +1242,7 @@
             background: lightgray;
             border-color: lightgray;
         }
-    </style>
+    </style> -->
 </head>
 
 <body style="height:100%; overflow-y: hidden;">
@@ -1433,7 +1710,6 @@
         <!-- 사용 예정 쿠폰 -->
 
 
-        <br>
         <span class="panel__tit">발급 예정 쿠폰</span>
         <ul class="coupons__list">
 
@@ -1711,7 +1987,7 @@
                 </div>
             </div>
             <div id="toast" class="toast"></div>
-            <br>
+
             <div class="modalbox__panel useCoupon" style="">
                 <a class="modalbox__close">
                     <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px"
