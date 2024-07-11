@@ -269,16 +269,17 @@
 
     <style>
         .modalbox {position: fixed; top: 0; right: 0; bottom: 0; left: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 999;}
-        .modalbox__panel{ display: flex; flex-direction: column;}
+        .modalbox__panel{ display: flex; flex-direction: column; padding: 0;}
         .modalbox .coupons {display: flex; flex-direction: column; flex: 1;}
-        .modalbox .coupons__list {flex: 1; overflow: hidden; overflow-y: auto; max-height: 260px; margin: 0 -10px; padding: 10px; background: rgb(203, 213, 225); box-shadow: inset 0 2px 4px 0 rgb(0,0,0, .05) }
+        .modalbox .coupons__list {flex: 1; padding: 10px;}
         .modalbox .coupons__imgbox {display: flex; flex-direction: column; align-items: center; justify-content: center; width: 80px; height: 80px;}
         .modalbox .coupons__price em {font-size: 18px; line-height: 1.2;}
-        .modalbox__guide {margin-top: 6px;}
+        .modalbox__guide {margin-top: 6px; padding: 10px;}
         .modalbox__guide p {margin-top: 6px;}
         .modalbox__guide ul {margin-top: 6px;}
         .modalbox__guide ul li{margin-top: 2px; font-size: 13px;}
         .barcode-container {display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .scrollbox {overflow-y: scroll; max-height: 400px;}
     </style>
 
 
@@ -2000,7 +2001,7 @@
                     </svg>
                 </a>
                 <p class="modalbox__tit">받은 쿠폰 사용하기</p>
-                <div style="display: flex;">
+                <div style="display: flex; padding: 0 10px;">
                     <span>바코드 유효시간 <span id="expiryTime">05:53</span></span>
                     <span style="margin-left: auto;">다운받은 쿠폰: <span class="wishListLength">06</span> 개</span>
                 </div>
@@ -2048,143 +2049,146 @@
                         style="width: 100%; text-align: center; padding: 6px; font-size: 14px; font-weight: 600; display: none;">쿠폰
                         바코드 새로고침</a>
                 </div>
-                <div class="coupons">
-                    <ul class="coupons__list useCouponView">
-                        <li style="width: 100%;">
-                            <div class="coupons__card">
-                                <div class="coupons__body" style="display: flex; padding: 7px;">
-                                    <div class="coupons__imgbox"><img
-                                            src="http://tdc-api-dev-3.togethers.kr:2004/ImageGoods/20171120/2/image-0051.jpg">
+                <div class="scrollbox">
+                    <div class="coupons">
+                        <ul class="coupons__list useCouponView">
+                            <li style="width: 100%;">
+                                <div class="coupons__card">
+                                    <div class="coupons__body" style="display: flex; padding: 7px;">
+                                        <div class="coupons__imgbox"><img
+                                                src="http://tdc-api-dev-3.togethers.kr:2004/ImageGoods/20171120/2/image-0051.jpg">
+                                        </div>
+                                        <div class="coupons__info"><span class="coupons__price"><em
+                                                    class="discount__price">300</em>원 할인</span><span
+                                                class="coupons__name">동원]양반참치죽</span><span class="coupons__barcode">8801047
+                                                161585</span><span class="coupons__date"
+                                                style="color:#495057; font-size:13px">2024.07.08
+                                                ~
+                                                07.18
+
+
+
+                                                (8일 남음)</span></div>
                                     </div>
-                                    <div class="coupons__info"><span class="coupons__price"><em
-                                                class="discount__price">300</em>원 할인</span><span
-                                            class="coupons__name">동원]양반참치죽</span><span class="coupons__barcode">8801047
-                                            161585</span><span class="coupons__date"
-                                            style="color:#495057; font-size:13px">2024.07.08
-                                            ~
-                                            07.18
-
-
-
-                                            (8일 남음)</span></div>
                                 </div>
-                            </div>
-                        </li>
-                        <li style="width: 100%;">
-                            <div class="coupons__card">
-                                <div class="coupons__body" style="display: flex; padding: 7px;">
-                                    <div class="coupons__imgbox"><img
-                                            src="https://s3.ap-northeast-2.amazonaws.com/products.key/main/동원_양반-전복죽-287.5g_8801047161578_1.png">
+                            </li>
+                            <li style="width: 100%;">
+                                <div class="coupons__card">
+                                    <div class="coupons__body" style="display: flex; padding: 7px;">
+                                        <div class="coupons__imgbox"><img
+                                                src="https://s3.ap-northeast-2.amazonaws.com/products.key/main/동원_양반-전복죽-287.5g_8801047161578_1.png">
+                                        </div>
+                                        <div class="coupons__info"><span class="coupons__price"><em
+                                                    class="discount__price">10</em>% 할인</span><span
+                                                class="coupons__name">동원]양반전복죽</span><span class="coupons__barcode">8801047
+                                                161578</span><span class="coupons__date"
+                                                style="color:#495057; font-size:13px">2024.07.07
+                                                ~
+                                                07.17
+
+
+
+                                                (7일 남음)</span></div>
                                     </div>
-                                    <div class="coupons__info"><span class="coupons__price"><em
-                                                class="discount__price">10</em>% 할인</span><span
-                                            class="coupons__name">동원]양반전복죽</span><span class="coupons__barcode">8801047
-                                            161578</span><span class="coupons__date"
-                                            style="color:#495057; font-size:13px">2024.07.07
-                                            ~
-                                            07.17
-
-
-
-                                            (7일 남음)</span></div>
                                 </div>
-                            </div>
-                        </li>
-                        <li style="width: 100%;">
-                            <div class="coupons__card">
-                                <div class="coupons__body" style="display: flex; padding: 7px;">
-                                    <div class="coupons__imgbox"><img
-                                            src="http://tdc-api-dev-3.togethers.kr:2004/ImageGoods/20180327_win/8801045522265_진라면_매운맛.png">
+                            </li>
+                            <li style="width: 100%;">
+                                <div class="coupons__card">
+                                    <div class="coupons__body" style="display: flex; padding: 7px;">
+                                        <div class="coupons__imgbox"><img
+                                                src="http://tdc-api-dev-3.togethers.kr:2004/ImageGoods/20180327_win/8801045522265_진라면_매운맛.png">
+                                        </div>
+                                        <div class="coupons__info"><span class="coupons__price"><em
+                                                    class="discount__price">200</em>원 할인</span><span
+                                                class="coupons__name">오뚜기)진라면 매운맛 멀티</span><span
+                                                class="coupons__barcode">8801045 522265</span><span class="coupons__date"
+                                                style="color:#495057; font-size:13px">2024.07.09
+                                                ~
+                                                07.19
+
+
+
+                                                (9일 남음)</span></div>
                                     </div>
-                                    <div class="coupons__info"><span class="coupons__price"><em
-                                                class="discount__price">200</em>원 할인</span><span
-                                            class="coupons__name">오뚜기)진라면 매운맛 멀티</span><span
-                                            class="coupons__barcode">8801045 522265</span><span class="coupons__date"
-                                            style="color:#495057; font-size:13px">2024.07.09
-                                            ~
-                                            07.19
-
-
-
-                                            (9일 남음)</span></div>
                                 </div>
-                            </div>
-                        </li>
-                        <li style="width: 100%;">
-                            <div class="coupons__card">
-                                <div class="coupons__body" style="display: flex; padding: 7px;">
-                                    <div class="coupons__imgbox"><img
-                                            src="http://tdc-api-dev-3.togethers.kr:2004/ImageGoods/2018/08/08/9692/1533706156620.jpg">
+                            </li>
+                            <li style="width: 100%;">
+                                <div class="coupons__card">
+                                    <div class="coupons__body" style="display: flex; padding: 7px;">
+                                        <div class="coupons__imgbox"><img
+                                                src="http://tdc-api-dev-3.togethers.kr:2004/ImageGoods/2018/08/08/9692/1533706156620.jpg">
+                                        </div>
+                                        <div class="coupons__info"><span class="coupons__price"><em
+                                                    class="discount__price">20</em>% 할인</span><span
+                                                class="coupons__name">팔도만능비빔장</span><span class="coupons__barcode">8809296
+                                                884118</span><span class="coupons__date"
+                                                style="color:#495057; font-size:13px">2024.07.10
+                                                ~
+                                                07.20
+
+
+
+                                                (10일 남음)</span></div>
                                     </div>
-                                    <div class="coupons__info"><span class="coupons__price"><em
-                                                class="discount__price">20</em>% 할인</span><span
-                                            class="coupons__name">팔도만능비빔장</span><span class="coupons__barcode">8809296
-                                            884118</span><span class="coupons__date"
-                                            style="color:#495057; font-size:13px">2024.07.10
-                                            ~
-                                            07.20
-
-
-
-                                            (10일 남음)</span></div>
                                 </div>
-                            </div>
-                        </li>
-                        <li style="width: 100%;">
-                            <div class="coupons__card">
-                                <div class="coupons__body" style="display: flex; padding: 7px;">
-                                    <div class="coupons__imgbox"><img
-                                            src="http://tdc-api-dev-3.togethers.kr:2004/ImageGoods/2018/08/08/9692/1533706156620.jpg">
+                            </li>
+                            <li style="width: 100%;">
+                                <div class="coupons__card">
+                                    <div class="coupons__body" style="display: flex; padding: 7px;">
+                                        <div class="coupons__imgbox"><img
+                                                src="http://tdc-api-dev-3.togethers.kr:2004/ImageGoods/2018/08/08/9692/1533706156620.jpg">
+                                        </div>
+                                        <div class="coupons__info"><span class="coupons__price"><em
+                                                    class="discount__price">100</em>원 할인</span><span
+                                                class="coupons__name">팔도만능비빔장</span><span class="coupons__barcode">8809296
+                                                884118</span><span class="coupons__date"
+                                                style="color:#495057; font-size:13px">2024.07.10
+                                                ~
+                                                07.20
+
+
+
+                                                (10일 남음)</span></div>
                                     </div>
-                                    <div class="coupons__info"><span class="coupons__price"><em
-                                                class="discount__price">100</em>원 할인</span><span
-                                            class="coupons__name">팔도만능비빔장</span><span class="coupons__barcode">8809296
-                                            884118</span><span class="coupons__date"
-                                            style="color:#495057; font-size:13px">2024.07.10
-                                            ~
-                                            07.20
-
-
-
-                                            (10일 남음)</span></div>
                                 </div>
-                            </div>
-                        </li>
-                        <li style="width: 100%;">
-                            <div class="coupons__card">
-                                <div class="coupons__body" style="display: flex; padding: 7px;">
-                                    <div class="coupons__imgbox"><img
-                                            src="http://tdc-api-dev-3.togethers.kr:2004/ImageGoods/korail/ki_sa1494987672101.jpg">
+                            </li>
+                            <li style="width: 100%;">
+                                <div class="coupons__card">
+                                    <div class="coupons__body" style="display: flex; padding: 7px;">
+                                        <div class="coupons__imgbox"><img
+                                                src="http://tdc-api-dev-3.togethers.kr:2004/ImageGoods/korail/ki_sa1494987672101.jpg">
+                                        </div>
+                                        <div class="coupons__info"><span class="coupons__price"><em
+                                                    class="discount__price">100</em>원 할인</span><span
+                                                class="coupons__name">비락식혜</span><span class="coupons__barcode">8801128
+                                                900201</span><span class="coupons__date"
+                                                style="color:#495057; font-size:13px">2024.07.01
+                                                ~
+                                                07.18
+
+
+
+                                                (8일 남음)</span></div>
                                     </div>
-                                    <div class="coupons__info"><span class="coupons__price"><em
-                                                class="discount__price">100</em>원 할인</span><span
-                                            class="coupons__name">비락식혜</span><span class="coupons__barcode">8801128
-                                            900201</span><span class="coupons__date"
-                                            style="color:#495057; font-size:13px">2024.07.01
-                                            ~
-                                            07.18
-
-
-
-                                            (8일 남음)</span></div>
                                 </div>
-                            </div>
-                        </li>
-                    </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--
+                    <div>
+                    <span>찜한 쿠폰이 없습니다.<br /> 먼저 쿠폰 찜 후 이용해주세요</span>
+                    </div> 
+                    -->
+                    <div class="modalbox__guide">
+                        <p>쿠폰사용안내</p>
+                        <ul>
+                            <li>계산대 직원에게 바코드를 보여주세요.</li>
+                            <li>대표바코드를 제시하면, 찜한쿠폰 전체 사용이 가능합니다.</li>
+                            <li>사용기간 만료 후, 교환/환불로 인한 재결제 시 쿠폰 적용이 어렵습니다.</li>
+                        </ul>
+                    </div>
                 </div>
-                <!--
-                 <div>
-                   <span>찜한 쿠폰이 없습니다.<br /> 먼저 쿠폰 찜 후 이용해주세요</span>
-                 </div> 
-                  -->
-                <div class="modalbox__guide">
-                    <p>쿠폰사용안내</p>
-                    <ul>
-                        <li>계산대 직원에게 바코드를 보여주세요.</li>
-                        <li>대표바코드를 제시하면, 찜한쿠폰 전체 사용이 가능합니다.</li>
-                        <li>사용기간 만료 후, 교환/환불로 인한 재결제 시 쿠폰 적용이 어렵습니다.</li>
-                    </ul>
-                </div>
+
             </div>
         </div>
     </div>
