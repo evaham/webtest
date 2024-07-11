@@ -269,7 +269,9 @@
 
     <style>
         .modalbox {position: fixed; top: 0; right: 0; bottom: 0; left: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 999;}
-        .modalbox .coupons__list {overflow-y: auto; width: auto; height: 250px; margin: 0 -10px; padding: 10px; background: rgb(203, 213, 225); }
+        .modalbox__panel{ display: flex; flex-direction: column;}
+        .modalbox .coupons {display: flex; flex-direction: column; flex: 1;}
+        .modalbox .coupons__list {flex: 1; overflow: hidden; overflow-y: auto; max-height: 260px; margin: 0 -10px; padding: 10px; background: rgb(203, 213, 225); box-shadow: inset 0 2px 4px 0 rgb(0,0,0, .05) }
         .modalbox .coupons__imgbox {display: flex; flex-direction: column; align-items: center; justify-content: center; width: 80px; height: 80px;}
         .modalbox .coupons__price em {font-size: 18px; line-height: 1.2;}
         .modalbox__guide {margin-top: 6px;}
